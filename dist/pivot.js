@@ -1351,7 +1351,7 @@
           if (values.length > opts.menuLimit) {
             valueList.append($("<p>").html(opts.localeStrings.tooMany));
           } else {
-            if (values.length > 5) {
+            if (values.length > 3) {
               controls = $("<p>").appendTo(valueList);
               sorter = getSort(opts.sorters, attr);
               placeholder = opts.localeStrings.filterResults;
@@ -1421,7 +1421,13 @@
               });
               filterItem.append($("<span>").addClass("value").text(value));
               filterItem.append($("<span>").addClass("count").text("(" + valueCount + ")"));
-              checkContainer.append($("<p>").append(filterItem));
+              let onlyButton = $("<span>").attr("href", "javascript:;").text("only").addClass("only");
+              onlyButton.on("click", (e) => {
+                $(e.target).parents(".pvtFilterBox").find(".pvtFilter").prop("checked", false).addClass("changed");
+                $(e.target).parent().find(".pvtFilter").prop("checked", true);
+                $(e.target).parents(".pvtFilterBox").find("button:contains(" + opts.localeStrings.apply + ")").click();
+              });
+              checkContainer.append($("<p>").append(filterItem).append(onlyButton));
             }
           }
           closeFilterBox = function() {

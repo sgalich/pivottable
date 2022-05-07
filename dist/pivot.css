@@ -97,6 +97,16 @@ table.pvtTable tbody tr td {
 .pvtFilterBox input[type='checkbox'] { margin-right: 10px; margin-left: 10px; }
 .pvtFilterBox input[type='text'] { width: 230px; }
 .pvtFilterBox .count { color: gray; font-weight: normal; margin-left: 3px;}
+.pvtFilterBox .only {
+    float: right;
+    cursor: pointer;
+    margin-left: 1em;
+    color: #2a61d8;
+}
+
+.pvtFilterBox .only:hover {
+    text-decoration: underline;
+}
 
 .pvtCheckContainer{
     text-align: left;
